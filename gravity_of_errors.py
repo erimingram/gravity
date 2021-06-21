@@ -23,26 +23,4 @@ def xy(t, xy0, v0):
     (vx0,vy0)= v0
     return x0 + vx0 * t, y0 + vy0 * t + 1./2 * g * t**2
 
-try:
-    xy0 += (0,0)
-except (NameError, TypeError):
-    x0 = float(input("Initial position x0 = "))
-    y0 = float(input("Initial position y0 = "))
-    xy0 = (x0, y0)
-
-try:
-    v0
-except (NameError, TypeError):
-    vx0 = float(input("Initial speed vx0 = "))
-    vy0 = float(input("Initial speed vy0 = "))
-    v0 = (vx0, vy0)
-finally:
-    try:
-        trajectory = [(t/2.,) + xy(t/2., xy0, v0) for t in range(8)]
-    except:
-        print("data has problems: " + str(xy0))
-
-
-
-print(trajectory)
 
